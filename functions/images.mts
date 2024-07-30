@@ -3,10 +3,10 @@ import { json } from 'stream/consumers';
 
 const API_ROOT = 'https://api.unsplash.com';
 
-export default async (request: Request, context: Context) => {
+export default async () => {
     try {
         const accessKey = process.env.ACCESS_KEY;
-        const doggoEndpoint = `${API_ROOT}/photos?client_id=${accessKey}&count=10&collections='3816141,1154337,1254279'`;
+        const doggoEndpoint = `${API_ROOT}/photos?client_id=${accessKey}&count=10&collections='e3HsXpoyMIc'`;
         const response = await fetch(doggoEndpoint);
         const images = await response.json();
         return new Response(JSON.stringify(images), {
