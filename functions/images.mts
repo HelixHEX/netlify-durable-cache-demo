@@ -1,6 +1,3 @@
-import { type Context } from '@netlify/functions';
-import { json } from 'stream/consumers';
-
 const API_ROOT = 'https://api.unsplash.com';
 
 export default async () => {
@@ -11,7 +8,7 @@ export default async () => {
         const images = await response.json();
         return new Response(JSON.stringify(images), {
             headers: {
-                'Netlify-CDN-Cache-Control': 'public, max-age=86400, durable'
+                'Netlify-CDN-Cache-Control': 'public, max-age=15000, durable'
             }
         })
     } catch (error) {
